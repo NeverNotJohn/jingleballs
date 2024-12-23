@@ -197,6 +197,8 @@ function WordSearchView(matrix, list, gameId, listId, instructionsId) {
 	 */
 	 this.triggerMouseDrag = function() {	
 
+		var click = false;
+
 	 	//empty array to store the selected cells in a move
 		var selectedLetters = [];
 
@@ -218,16 +220,18 @@ function WordSearchView(matrix, list, gameId, listId, instructionsId) {
 			$(this).addClass(names.selected);
 
 			//sets the pressed cell to be the 'pivot' of the move
-			$(this).attr({id: names.pivot});
+			if (!click) $(this).attr({id: names.pivot});
 
 			//highlights all the possible paths the user may go to select more letters
-			highlightValidDirections($(this), matrix, names.selectable);
+			if (!click) highlightValidDirections($(this), matrix, names.selectable);
 
 		});
 
 		/** this code executes when the mouse is down and the user starts moving their
 		 * mouse inside the puzzle container!
 		 */
+
+
 		$(select.cells).mouseenter(function() {  
 			
 			//ensures the mouse is down and the cell the mouse is on is on a valid path
@@ -265,7 +269,12 @@ function WordSearchView(matrix, list, gameId, listId, instructionsId) {
 		 */
 		$(select.cells).mouseup(function() {
 
-			endMove();
+			if (click) {
+				endMove();
+			}
+			else {
+				click = true;
+			}
 
 		});
 
@@ -290,6 +299,7 @@ function WordSearchView(matrix, list, gameId, listId, instructionsId) {
 
 			//sets mouse down as false since the mouse is now up
 			mouseIsDown = false;
+			click = false;
 
 			//checks if a word on the list was selected
 			if (validWordMade(list, wordMade, instructionsId)) {

@@ -18,8 +18,8 @@ function WordSearchController(gameId, listId, solveId, newGameId, instructionsId
 	//an object containing various themes/words for the game
 	var searchTypes = {
 
-		"Math! (please don't run away)": [["asymptote", "differential", "algorithm", "boolean"],
-			["euclidean", "integral", "logarithm", "matrix"]]
+		"Math! (please don't run away)": [["four", "hmong", "adopted", "cute", "phosphorescence"],
+			["iushdfihsadfah", "dick", "Tranquility", "Norimae", "poochie"]]
 
 	};
 
@@ -28,7 +28,7 @@ function WordSearchController(gameId, listId, solveId, newGameId, instructionsId
 	var view;
 
 	//instructions to display in h2 header
-	var mainInstructions = "Search for the list of words inside the box and click-and-drag to select them!";
+	var mainInstructions = "Find da words to reveal Poochie's secret message!";
 
 	//function call to start the word search game
 	setUpWordSearch();

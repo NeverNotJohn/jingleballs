@@ -1,5 +1,20 @@
 "use strict";
 
+let stuff = {
+	FOUR: "one",
+	HMONG: "two",
+	ADOPTED: "three",
+	CUTE: "four",
+	PHOSPHORESCENCE: "five",
+	IUSHDFIHSDFAH: "six",
+	DICK: "seven",
+	TRANQUILITY: "eight",
+	NORIMAE: "nine",
+	POOCHIE: "ten"
+};
+
+//alert(stuff["FOUR"])
+
 /** This object contains the necessary functions to create the 'view' of the word search,
  * which essentially refers to displaying the puzzle and handling mouse events!
  *
@@ -303,8 +318,24 @@ function WordSearchView(matrix, list, gameId, listId, instructionsId) {
 
 			//checks if a word on the list was selected
 			if (validWordMade(list, wordMade, instructionsId)) {
+			
+			
+				var reversedWord = "";
 
-				$(select.selected).addClass("found");
+				//loops through from end of word to the beginning (instead of traditional beginning to end)
+				for (var i = wordMade.length - 1; i >= 0; i--) {
+
+					//adds the character to reversed word
+					reversedWord += wordMade.charAt(i);
+
+				}
+
+				
+				document.getElementById(stuff[wordMade]).classList.remove("hidden");
+				document.getElementById(stuff[reversedWord]).classList.remove("hidden");
+				
+
+				
 
 			}
 

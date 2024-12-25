@@ -59,6 +59,10 @@ body {
 
 }
 
+p {
+	text-align: left;
+}
+
 .cell {
 
 	margin: 0 auto;
@@ -146,6 +150,10 @@ body {
 	font-size: 18px;
 	font-weight: bold;
 
+}
+
+.hidden {
+	display: none;
 }
 
 @font-face {
